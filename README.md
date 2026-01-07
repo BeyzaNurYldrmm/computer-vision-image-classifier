@@ -181,4 +181,5 @@ Veri artırma (augmentation) sonrası örnek görseller, konfigürasyon üzerind
 
 
 Bu framework, deneysel derin öğrenme çalışmalarında:
+
 Kod tekrarını azaltmayı, deney yönetimini standartlaştırmayı amaçlayan bir altyapı sunar.
