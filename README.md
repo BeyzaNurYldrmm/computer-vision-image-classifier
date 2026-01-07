@@ -16,10 +16,13 @@ Proje, modüler bir yapı izlemektedir. Her bileşen tek bir sorumluluğa sahipt
 
 framework/
 │
+
 ├── train.py
+
 │   Ana giriş noktasıdır. CLI üzerinden config dosyası alır ve
 │   tüm eğitim sürecini başlatır.
 │
+
 ├── pipeline.py
 │   Eğitim, doğrulama ve test döngülerini yöneten ana akıştır.
 │
@@ -183,3 +186,4 @@ Veri artırma (augmentation) sonrası örnek görseller, konfigürasyon üzerind
 Bu framework, deneysel derin öğrenme çalışmalarında:
 
 Kod tekrarını azaltmayı, deney yönetimini standartlaştırmayı amaçlayan bir altyapı sunar.
+
