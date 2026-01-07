@@ -1,0 +1,30 @@
+extends = "base.toml"
+
+[system]
+device = "cpu"
+
+[data]
+train_path = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/train"
+test_path  = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/test"
+batch_size = 4
+visualize = false
+num_sample_image_show = 3
+
+[model]
+name = "BEiT"
+train_type = 1     # training yok sadece fine tune aktif
+  
+[beit]  
+fine_tune_last_k_layers = 2 # son kaç blogun eğitileceğinin sayısı
+
+[training]
+epochs = 15                
+lr = 3e-5                   
+optimizer = "AdaBelief"
+scheduler = "Cosine"
+criterion = "CE_LS"         
+patience = 3
+min_delta = 0.001
+mode = "min"
+
+dosya sayıp case 1 2 3 45gibi yazzzdırma dosya adını

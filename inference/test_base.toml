@@ -1,0 +1,10 @@
+[system]
+device = "cpu"         
+seed = 42
+
+[test]
+pred_model    = "BEiT"   # "ViT" | "Swin" | "ConvNext" | "EfficientNet" | "BEiT"
+save_mdl_path = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/framework_beyza/runs/20251230_105305_BEiT/model.pth"
+img_path      = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/test/Cadillac CTS-V Sedan 2012/00016.jpg"
+img_size      = 224
+num_class     = 20

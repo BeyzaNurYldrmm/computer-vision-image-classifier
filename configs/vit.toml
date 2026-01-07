@@ -1,0 +1,35 @@
+extends = "base.toml"
+
+[system]
+device = "cpu"
+
+[data]
+train_path = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/train"
+test_path  = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/test"
+batch_size = 4
+visualize = false
+num_sample_image_show = 3
+
+[model]
+name = "ViT"
+train_type = 1              # 0 = train,  = pretrained
+image_size = 224
+
+[vit]
+patch_size = 16             
+depth = 12                  # Transformer encoder bloklarının toplam sayısı
+heads = 12                  # Multi-head self-attention mekanizmasında kullanılan attention head sayısı
+dim = 768                   # Her token’ın embedding boyutu
+mlp_dim = 3072              # MLP katman boyutu
+fine_tune_last_k_layers = 2 # son kaç blogun eğitileceğinin sayısı
+
+[training]
+epochs = 8                   
+lr = 3e-5                   
+optimizer = "AdamW"
+scheduler = "Cosine"
+criterion = "CE_LS"         
+patience = 3
+min_delta = 0.001
+mode = "min"
+

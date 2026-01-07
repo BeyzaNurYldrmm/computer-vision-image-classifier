@@ -1,0 +1,35 @@
+extends = "base.toml"
+
+[system]
+device = "cpu"  
+
+[data]
+train_path = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/train"
+test_path  = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/test"
+batch_size = 4
+image_size = 224
+
+[model]
+name = "ConvNext"
+train_type = 1         # 0 = train,  = pretrained
+
+[convnext]
+dims = [96, 192, 384, 768]  # ConvNeXt’in her aşamasındaki kanal (feature) boyutları
+cn_depths = [3, 3, 9, 3]    # Her aşamada kaç blok (layer) kullanılacağı
+
+cn_drop_path_rate = 0.2     # Stochastic Depth oranı
+layer_scale_init_value = 1e-6 # resudual öncesi başlangıç
+head_init_scale = 1.0         # classifier head, başlangıç ölçekleme
+
+fine_tune_last_k_layers = 2   # son kaç katmanın eğitileceğini
+
+[training]
+epochs = 10                
+lr = 2e-4                  
+optimizer = "AdaBelief"
+scheduler = "Cosine"
+criterion = "CE_LS"
+patience = 5
+min_delta = 0.001
+mode = "min"
+

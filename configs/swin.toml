@@ -1,0 +1,51 @@
+# swin.toml
+extends = "base.toml"
+
+[system]
+device = "cpu"    
+
+[data]
+train_path = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/train"
+test_path  = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/test"
+batch_size = 4
+visualize = false
+num_sample_image_show = 2
+
+[model]
+name = "Swin"
+train_type = 1           # 0: train ,  1: fine-tune
+
+[swin]
+image_size = 224
+patch_size = 4     # görüntünün kaç piksellik yamalara bölüneceği
+fine_tune_last_k_layers = 2   # eğitilecek son katman sayısı
+
+embed_dim = 96            # başlangıç kanal boyutu
+depths = [2, 2, 6, 2]         # transformer blok sayıları
+num_heads = [3, 6, 12, 24]       # attention head sayıları
+
+window_size = 7  # Self-attention işleminin uygulandığı pencere boyutu(dğiştirilmesi önerilmez)
+mlp_ratio = 4.0   # MLP katmanındaki gizli boyutun embedding boyutuna oranı
+
+qkv_bias = true   # Query, Key ve Value projeksiyonlarına bias eklenip eklenmeyeceğini belirtilir
+qk_scale = 0        # Attention hesaplamasında ölçekleme katsayısı (0 olması otomatik ölçekleme anlamına gelir)           
+drop_rate = 0.0       # dropout
+attn_drop_rate = 0.0    # Attention katmanına özel dropout
+sw_drop_path_rate = 0.2   # Stochastic Depth oranı=> overfitting düşürür
+
+norm_layer = "ln"     # normalizasyon türü layernorm='ln', batchnorm='bn'
+ape = false            # Absolute positional embedding kullanımını kontrol
+patch_norm = true        # normalizasyon uygulanıp uygulanmayacağı
+use_checkpoint = false     # bellek tasarrufu yapılıp yapılmayacağı
+fused_window_process = false  # window işlemlerinin birleştirilmiş (optimize) şekilde çalıştırılıp çalıştırılmayacağı
+
+[training]
+epochs = 12                
+lr = 5e-5                    
+optimizer = "AdamW"
+scheduler = "Cosine"
+criterion = "CE_LS"        
+patience = 5
+min_delta = 0.001
+mode = "min"
+

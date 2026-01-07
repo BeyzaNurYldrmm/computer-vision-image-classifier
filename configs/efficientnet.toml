@@ -1,0 +1,31 @@
+# efficientnet.toml
+extends = "base.toml"
+
+[system]
+device = "cpu"
+
+[data]
+train_path = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/train"
+test_path  = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/test"
+batch_size = 4
+visualize = false
+num_sample_image_show = 3
+
+[model]
+name = "EfficientNet"
+train_type = 1              # 1 = pretrained, 0 = scratch
+image_size = 224
+
+[efficientnet]
+model_version = "efficientnet_b0"   # varyantını belirtir (ör. b0, b1, b2) ama sadece şuan kullanımda olan varyant b0
+
+[training]
+epochs = 10               
+lr = 1e-4                  
+optimizer = "AdamW"
+scheduler = "Cosine"
+criterion = "CE_LS"        
+patience = 5
+min_delta = 0.001
+mode = "min"
+

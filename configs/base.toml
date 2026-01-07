@@ -1,0 +1,20 @@
+[system]
+device = "cpu"
+seed = 42
+
+[data]
+train_path = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/train"
+test_path  = "C:/Users/06bey/OneDrive/Masaüstü/vision/project_1/stanford-car-dataset-by-classes-folder-224/car_data/test"
+batch_size = 4
+visualize = false
+num_sample_image_show = 3
+
+[training]
+epochs = 50
+lr = 1e-5
+optimizer = "AdamW"     #   "AdamW",  "Adam",  "AdaBelief", "Adamax", "Lars-ef", "Lamb"
+scheduler = "Cosine"   #    CosineAnnealingLR=>"Cosine" ,  StepLR=>"Step" ,  ReduceLROnPlateau=>"Plateau" 
+criterion = "CE_LS"   #   "CE":CrossEntropyLoss,  "CE_LS":CrossEntropyLoss-label_smoothing , "BCE":BCEWithLogitsLoss,  "MSE": MSELoss,  "SmoothL1":SmoothL1Loss
+patience = 5
+min_delta = 0.001
+mode = "min"   # ''min', 'max'
