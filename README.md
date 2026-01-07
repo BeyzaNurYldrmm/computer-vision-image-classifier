@@ -15,6 +15,7 @@ Deney çıktılarının sistematik biçimde kaydedilmesi
 Proje, modüler bir yapı izlemektedir. Her bileşen tek bir sorumluluğa sahiptir.
 
 framework/
+
 │
 
 ├── train.py
@@ -24,30 +25,47 @@ framework/
 │
 
 ├── pipeline.py
+
 │   Eğitim, doğrulama ve test döngülerini yöneten ana akıştır.
 │
+
 ├── configs/
+
 │   Model ve deney ayarlarının bulunduğu TOML dosyaları.
 │
+
 ├── model/
+
 │   Model üretiminden sorumludur (factory yaklaşımı).
 │
+
 ├── training/
+
 │   Loss, optimizer, scheduler ve config doğrulama bileşenleri.
 │
+
 ├── data_loading.py
+
 │   Dataset, DataLoader ve Data örnek görsel oluşturma tanımlarını içerir. 
 │
+
 ├── utils/
+
 │   Konfigürasyon yükleme ve deney klasörü yönetimi.
 │
+
 ├── runs/
+
 │   Deney çıktılarının otomatik kaydedildiği dizin.Otomatşk oluşturulur.
 │
+
 ├── requirements.txt/
+
 │   Projede kullanılan tüm bağımlılıkları içerir.
 │
+
 ├── setup.ps1/
+
 │   Windows power shell dosyası ihtiyaç duyulan sanal ortam ve kütüphane kurulumu gerçekleştirir.
 
 
@@ -186,4 +204,5 @@ Veri artırma (augmentation) sonrası örnek görseller, konfigürasyon üzerind
 Bu framework, deneysel derin öğrenme çalışmalarında:
 
 Kod tekrarını azaltmayı, deney yönetimini standartlaştırmayı amaçlayan bir altyapı sunar.
+
 
